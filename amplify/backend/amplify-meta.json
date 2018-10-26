@@ -1,0 +1,111 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplifyheadlight-20181026100601-authRole",
+			"UnauthRoleArn": "arn:aws:iam::343236483212:role/amplifyheadlight-20181026100601-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::343236483212:role/amplifyheadlight-20181026100601-authRole",
+			"Region": "eu-west-1",
+			"DeploymentBucketName": "amplifyheadlight-20181026100601-deployment",
+			"UnauthRoleName": "amplifyheadlight-20181026100601-unauthRole",
+			"StackName": "amplifyheadlight-20181026100601",
+			"StackId": "arn:aws:cloudformation:eu-west-1:343236483212:stack/amplifyheadlight-20181026100601/be442bd0-d906-11e8-945a-50a686326636"
+		}
+	},
+	"auth": {
+		"HeadlightUserpool": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplifyheadlight-20181026100601-deployment/amplify-cfn-templates/auth/HeadlightUserpool-cloudformation-template.yml",
+				"logicalId": "authHeadlightUserpool"
+			},
+			"lastPushTimeStamp": "2018-10-26T10:34:09.187Z",
+			"output": {
+				"AppClientSecret": "15v5kdlanessaen7v2b8aso0en40upcnlo7q7ptq74f2pkmeknrs",
+				"UserPoolId": "eu-west-1_To5M29zZE",
+				"AppClientIDWeb": "4h9vq1c7s4o9gg2mptkctpfj8q",
+				"AppClientID": "4c2qsftqp5t8mr1f475hih3ims",
+				"UserPoolName": "Headlight",
+				"IdentityPoolId": "eu-west-1:ebbcdee7-548b-4e62-900c-164aa34f7439",
+				"IdentityPoolName": "HeadlightUserpool_identitypool_1d89a3cd"
+			},
+			"lastPushDirHash": "3FlY8e6mpBqBbvMZ37ZTsfP8NnY="
+		}
+	},
+	"storage": {
+		"headlightdb": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplifyheadlight-20181026100601-deployment/amplify-cfn-templates/storage/headlightdb-cloudformation-template.json",
+				"logicalId": "storageheadlightdb"
+			},
+			"lastPushTimeStamp": "2018-10-26T10:34:09.187Z",
+			"output": {
+				"PartitionKeyName": "id",
+				"Region": "eu-west-1",
+				"Arn": "arn:aws:dynamodb:eu-west-1:343236483212:table/konsultantprofile",
+				"PartitionKeyType": "S",
+				"Name": "konsultantprofile"
+			},
+			"lastPushDirHash": "9Px6CL924/HvAw7OpATRv0lH8xc="
+		}
+	},
+	"function": {
+		"headlightlambda": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "headlightdb",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"lastBuildTimeStamp": "2018-10-26T10:31:03.842Z",
+			"lastPackageTimeStamp": "2018-10-26T10:31:07.218Z",
+			"distZipFilename": "headlightlambda-1540549863-latest-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplifyheadlight-20181026100601-deployment/amplify-cfn-templates/function/headlightlambda-cloudformation-template.json",
+				"logicalId": "functionheadlightlambda"
+			},
+			"lastPushTimeStamp": "2018-10-26T10:34:09.187Z",
+			"output": {
+				"Region": "eu-west-1",
+				"Arn": "arn:aws:lambda:eu-west-1:343236483212:function:crudlambda",
+				"Name": "crudlambda"
+			},
+			"lastPushDirHash": "QC3DiSjW1OtVdRLeQayAGUzwDD4="
+		}
+	},
+	"api": {
+		"headlightapi": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "headlightlambda",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplifyheadlight-20181026100601-deployment/amplify-cfn-templates/api/headlightapi-cloudformation-template.json",
+				"logicalId": "apiheadlightapi"
+			},
+			"lastPushTimeStamp": "2018-10-26T10:34:09.187Z",
+			"output": {
+				"ApiName": "headlightapi",
+				"RootUrl": "https://afhu9fml17.execute-api.eu-west-1.amazonaws.com/Prod"
+			},
+			"lastPushDirHash": "szyS0OWn1RKmS4Kn8ViNJTug6Pg="
+		}
+	}
+}

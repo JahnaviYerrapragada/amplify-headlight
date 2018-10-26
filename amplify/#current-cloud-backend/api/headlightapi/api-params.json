@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/profile",
+            "lambdaFunction": "headlightlambda",
+            "privacy": {
+                "private": true,
+                "auth": "rw"
+            }
+        }
+    ],
+    "resourceName": "headlightapi",
+    "apiName": "amplifyheadlight201d5329",
+    "functionArns": [
+        {
+            "lambdaFunction": "headlightlambda"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplifyheadlight-20181026100601-authRole",
+        "unAuthRoleName": "amplifyheadlight-20181026100601-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "headlightlambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

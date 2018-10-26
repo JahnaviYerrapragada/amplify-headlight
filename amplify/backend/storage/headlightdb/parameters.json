@@ -1,0 +1,5 @@
+{
+    "tableName": "konsultantprofile",
+    "partitionKeyName": "id",
+    "partitionKeyType": "S"
+}

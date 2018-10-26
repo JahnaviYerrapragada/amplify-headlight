@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "amplifyheadlight-20181026100601-authRole",
+            "UnauthRoleArn": "arn:aws:iam::343236483212:role/amplifyheadlight-20181026100601-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::343236483212:role/amplifyheadlight-20181026100601-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "amplifyheadlight-20181026100601-deployment",
+            "UnauthRoleName": "amplifyheadlight-20181026100601-unauthRole",
+            "StackName": "amplifyheadlight-20181026100601",
+            "StackId": "arn:aws:cloudformation:eu-west-1:343236483212:stack/amplifyheadlight-20181026100601/be442bd0-d906-11e8-945a-50a686326636"
+        }
+    }
+}

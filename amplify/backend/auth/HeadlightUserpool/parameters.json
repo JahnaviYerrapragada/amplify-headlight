@@ -1,0 +1,60 @@
+{
+    "identityPoolName": "HeadlightUserpool_identitypool_1d89a3cd",
+    "allowUnauthenticatedIdentities": false,
+    "thirdPartyAuth": false,
+    "lambdaLogPolicy": "HeadlightUserpool_lambda_log_policy",
+    "openIdLambdaRoleName": "HeadlightUserpool_openid_lambda_role",
+    "openIdRolePolicy": "HeadlightUserpool_openid_pass_role_policy",
+    "openIdLambdaIAMPolicy": "HeadlightUserpool_openid_lambda_iam_policy",
+    "openIdLogPolicy": "HeadlightUserpool_openid_lambda_log_policy",
+    "userPoolName": "Headlight",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+        "SMS Text Message"
+    ],
+    "roleName": "HeadlightUserpool_sns-role",
+    "roleExternalId": "HeadlightUserpool_role_external_id",
+    "policyName": "HeadlightUserpool-sns-policy",
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Please enter correct email",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [
+        "Requires Lowercase",
+        "Requires Uppercase",
+        "Requires Numbers",
+        "Requires Symbols"
+    ],
+    "requiredAttributes": [
+        "email"
+    ],
+    "userpoolClientName": "HeadlightUserpool_app_client",
+    "userpoolClientGenerateSecret": true,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientReadAttributes": [
+        "email"
+    ],
+    "mfaLambdaRole": "HeadlightUserpool_totp_lambda_role",
+    "mfaLambdaLogPolicy": "HeadlightUserpool_totp_lambda_log_policy",
+    "mfaPassRolePolicy": "HeadlightUserpool_totp_pass_role_policy",
+    "mfaLambdaIAMPolicy": "HeadlightUserpool_totp_lambda_iam_policy",
+    "userpoolClientLambdaRole": "HeadlightUserpool_userpoolclient_lambda_role",
+    "userpoolClientLogPolicy": "HeadlightUserpool_userpoolclient_lambda_log_policy",
+    "userpoolClientLambdaPolicy": "HeadlightUserpool_userpoolclient_lambda_iam_policy",
+    "userpoolClientSetAttributes": true,
+    "useDefault": "manual",
+    "authSelections": "identityPoolAndUserPool",
+    "resourceName": "HeadlightUserpool",
+    "userpoolClientWriteAttributes": [
+        "email"
+    ],
+    "unAuthRoleName": "amplifyheadlight-20181026100601-unauthRole",
+    "authRoleName": "amplifyheadlight-20181026100601-authRole",
+    "unAuthRoleArn": "arn:aws:iam::343236483212:role/amplifyheadlight-20181026100601-unauthRole",
+    "authRoleArn": "arn:aws:iam::343236483212:role/amplifyheadlight-20181026100601-authRole"
+}
